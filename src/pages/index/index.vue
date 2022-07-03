@@ -2,18 +2,28 @@
   <view class="content">
     <image class="logo" src="/static/logo.png" />
     <view class="text-area">
-      <text class="title">
-         {{ title }}</text>
+      <text class="title"> {{ title }}</text>
       <view class="test">{{ name }}</view>
+      {{ counter }}
+      <button @tap="add">+</button>
     </view>
-  </view> 
+  </view>
 </template>
 
 <script setup lang="ts">
+import { useTestStore } from '@/store/modules/test';
+import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
+const store = useTestStore();
+
+const { counter } = storeToRefs(store);
+
+function add() {
+  store.setCounter();
+}
+
 const title = ref('Hello');
 const name = ref('name');
-
 </script>
 
 <style lang="scss">
