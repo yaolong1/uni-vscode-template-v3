@@ -13,6 +13,7 @@
 import { ref } from 'vue';
 const title = ref('Hello');
 const name = ref('name');
+
 </script>
 
 <style lang="scss">
