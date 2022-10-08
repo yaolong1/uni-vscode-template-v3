@@ -1,19 +1,22 @@
 <template>
-  <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title"> {{ title }}</text>
-      <view class="test">{{ name }}</view>
-      {{ counter }}
-      <button @tap="add">+</button>
+  <Test>
+    <view class="content">
+      <image class="logo" src="/static/logo.png" />
+      <view class="text-area">
+        <text class="title"> {{ title }}</text>
+        <view class="test">{{ name }}</view>
+        {{ counter }}
+        <button @tap="add">+</button>
+      </view>
     </view>
-  </view>
+  </Test>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useTestStore } from '@/store/modules/test';
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
+import Test from '../test/index.vue';
 const store = useTestStore();
 
 const { counter } = storeToRefs(store);
@@ -32,10 +35,7 @@ const name = ref('name');
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  .test {
-    color: red;
-  }
+  height:2000rpx;
 }
 
 .logo {
